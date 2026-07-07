@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 216 20% 10%;
+    --foreground: 210 20% 85%;
+    --card: 216 20% 12%;
+    --card-foreground: 210 20% 85%;
+    --popover: 216 20% 12%;
+    --popover-foreground: 210 20% 85%;
+    --primary: 190 95% 40%;
+    /* Cyan-600 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 216 20% 20%;
+    --secondary-foreground: 210 20% 85%;
+    --muted: 216 20% 20%;
+    --muted-foreground: 210 20% 60%;
+    --accent: 216 20% 20%;
+    --accent-foreground: 210 20% 85%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 85%;
+    --border: 216 20% 25%;
+    --input: 216 20% 25%;
+    --ring: 190 95% 40%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* FIX: Evitar el color amarillo/blanco del autocompletado en navegadores */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #0f172a inset !important;
+    /* Slate-900 */
+    -webkit-text-fill-color: #f1f5f9 !important;
+    /* Slate-100 */
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+@layer components {
+
+  /* Tooltip profesional para Recharts - alto contraste en modo oscuro */
+  .recharts-tooltip-custom {
+    background-color: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.45) !important;
+    color: #0f172a !important;
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+  }
+
+  .recharts-tooltip-custom .recharts-tooltip-label {
+    color: #0f172a !important;
+    font-weight: 600 !important;
+  }
+
+  .recharts-tooltip-custom .recharts-tooltip-item {
+    color: #1e293b !important;
+  }
+
+  /* Fix: Radix Tooltip en dark mode - fondo blanco, texto oscuro */
+  .dark [data-radix-popper-content-wrapper] [role="tooltip"] {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+  }
+}
