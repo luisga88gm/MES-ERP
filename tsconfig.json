@@ -22,13 +22,11 @@
       "node",
       "vite/client"
     ],
-    // Configuración para permitir el despliegue a pesar de errores de tipos menores
     "strict": false,
     "noImplicitAny": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "allowImportingTsExtensions": true,
-    // Optimización para Vercel
     "noEmit": true,
     "incremental": true,
     "tsBuildInfoFile": "./node_modules/.cache/tsbuildinfo"
